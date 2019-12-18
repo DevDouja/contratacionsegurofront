@@ -1,19 +1,19 @@
 <div class="container">
 <h4 class="pregunta">¿Cuantas personas conviven en la vivienda? </h4>
   <div class="personas">
-  <button mat-button>1</button>
+  <button mat-button (click)="setHabitantes(1)">1</button>
 
-  <button mat-button>2</button>
+  <button mat-button (click)="setHabitantes(2)">2</button>
 
-  <button mat-button>3</button>
+  <button mat-button (click)="setHabitantes(3)">3</button>
   <br>
-  <button mat-button>4</button>
+  <button mat-button (click)="setHabitantes(4)">4</button>
 
-  <button mat-button>5</button>
+  <button mat-button (click)="setHabitantes(5)">5</button>
 
-  <button mat-button>6</button>
+  <button mat-button (click)="setHabitantes(6)">6</button>
   <br>
-  <button mat-button>+6</button>
+  <button mat-button (click)="setHabitantes(7)">+6</button>
 </div>
   <div class="seguimiento">
     <button mat-button class="butredondo"(click)="navigateToAtras()">Atrás</button>

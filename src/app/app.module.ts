@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 //PAGINAS
 import { AppRoutingModule } from './app-routing.module';
+import {ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RelacionViviendaComponent } from './relacion-vivienda/relacion-vivienda.component';
@@ -29,6 +30,7 @@ import {MatNativeDateModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatStepperModule} from '@angular/material/stepper';
+
 //FINAL FRONTEND 
 
 //MAMIL AYUDA
@@ -70,6 +72,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { CoberturasComponent } from './coberturas/coberturas.component';
+import { EstadoService } from './services/estado.service';
+import { PresupuestoService } from './services/presupuesto.service';
+import { CUSTOM_ELEMENTS_SCHEMA }      from '@angular/core'; 
 //FIN MAMIL AYUDA
 @NgModule({
   declarations: [
@@ -140,6 +145,10 @@ import { CoberturasComponent } from './coberturas/coberturas.component';
   //mamil - fin
   imports: [
     BrowserModule,
+    //FormBuilder,
+    //FormGroup,
+    ReactiveFormsModule,
+    //Validators,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
@@ -153,10 +162,14 @@ import { CoberturasComponent } from './coberturas/coberturas.component';
     MatStepperModule,
     MatListModule,
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   entryComponents:[
     AyudaSheetComponent
   ],
-  providers: [],
+  providers: [
+    EstadoService,
+    PresupuestoService
+  ],
   bootstrap: [AppComponent]
 })
 
