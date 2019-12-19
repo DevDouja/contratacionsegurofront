@@ -29,6 +29,7 @@ export class DireccionComponent implements OnInit {
   navigateToSiguiente() {
     this.estado.vivienda.codigoPostal = this.codigoPostal;
     console.log("****Codigo Postal:Vivienda*****",this.estado.vivienda.codigoPostal);
+    console.log("****Vivienda en Direccion*****",this.estado.vivienda);
     this.estado.saveData();
     this.router.navigate(['/infocatastro']);
   }

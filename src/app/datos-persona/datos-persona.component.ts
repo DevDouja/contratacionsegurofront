@@ -49,7 +49,7 @@ export class DatosPersonaComponent implements OnInit {
     this.router.navigate(['/continentecontenido']);
   }
   navigateToSiguiente() {
-    this.router.navigate(['/coberturas']);
+    this.router.navigate(['/presupuesto']);
   }
 
 }

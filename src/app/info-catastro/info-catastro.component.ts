@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {FormBuilder, FormControl, FormGroup, Validators, FormsModule} from '@angular/forms';
+import { EstadoService } from '../services/estado.service';
 
 export interface Tipovivienda{
   value:string;
@@ -7,7 +9,7 @@ export interface Tipovivienda{
 }
 export interface Tipocontruccion{
   value:string;
-  viewValue:string
+  viewValue:string;
 }
 
 
@@ -20,26 +22,63 @@ export interface Tipocontruccion{
 
 export class InfoCatastroComponent implements OnInit {
 
-  tipovivienda:Tipovivienda[]=[
-    {value: 'pisobajo-0' , viewValue :'Piso Bajo'},
-    {value: 'pisoalto-1' , viewValue :'Piso en alto'},
-    {value: 'unifamiliar-2' , viewValue :'Unifamiliar adosado/pareado'},
-    {value: 'unifamiliarindepe-3' , viewValue :'Unifamiliar independiente'},
+  infoCatastro: FormGroup;
+  valorTipoVivienda:string;
+  valorTipoContruccion:string;
+  anyoConstruccion:Date;
+  superficieConstruida:number;
+
+
+  tipoViviendas:Tipovivienda[]=[
+    {value: 'pisoBajo' , viewValue :'Piso Bajo'},
+    {value: 'pisoAlto' , viewValue :'Piso en alto'},
+    {value: 'unifamiliarAdosado' , viewValue :'Unifamiliar adosado/pareado'},
+    {value: 'unifamiliarIndependiente' , viewValue :'Unifamiliar independiente'},
   ];
-  tipocontruccion:Tipocontruccion[]=[
-    {value: 'hormigon-0' , viewValue :'Hormigón,piedra, ladrillo o metal'},
-    {value: 'pisoalto-1' , viewValue :'Piedra o ladrillo con vigas de madera'},
-    {value: 'unifamiliar-2' , viewValue :'Otro'},
+  tipoConstrucciones:Tipocontruccion[]=[
+    {value: 'vigasMadera' , viewValue :'Hormigón,piedra, ladrillo o metal'},
+    {value: 'vigasMetal' , viewValue :'Piedra o ladrillo con vigas de madera'},
+    {value: 'otros' , viewValue :'Otro'},
   ];
 
-  constructor(private router : Router) { }
+  constructor(private router : Router,
+    public formBuilder: FormBuilder,
+    private estado:EstadoService) { }
 
   ngOnInit() {
+   this.infoCatastro = this.formBuilder.group({
+    anyoConstruccion: ['',Validators.required],
+    superficieConstruida:['',[Validators.required]&&[Validators.pattern('^[0-9]{2,}$')]],
+
+    });
   }
+
   navigateToAtras() {
     this.router.navigate(['/direccion']);
   }
   navigateToSiguiente() {
+    /******TipoVivienda*/
+    this.estado.vivienda.tipo = this.valorTipoVivienda;
+    console.log("****Vivienda en InfoCatastro *****",this.estado.vivienda);
+    console.log("tipoVivienda:",this.estado.vivienda.tipo);
+
+     /******valorTipoContruccion*/
+     this.estado.vivienda.tipoConstruccion = this.valorTipoContruccion;
+     console.log("****Vivienda en InfoCatastro *****",this.estado.vivienda);
+     console.log("valorTipoContruccion:",this.estado.vivienda.tipoConstruccion);
+
+      /******anyoConstruccion*/
+      this.estado.vivienda.anyoConstruccion = this.anyoConstruccion;
+      console.log("****anyoConstruccion en InfoCatastro *****",this.estado.vivienda);
+      console.log("anyoConstruccion:",this.estado.vivienda.anyoConstruccion);
+
+       /******superficieConstruida*/
+       this.estado.vivienda.superficieConstruida = Number(this.superficieConstruida);
+       console.log("****anyoConstruccion en InfoCatastro *****",this.estado.vivienda);
+       console.log("anyoConstruccion:",this.estado.vivienda.anyoConstruccion);
+
+
+    this.estado.saveData();
     this.router.navigate(['/seguroactual']);
   }
 

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule }     from '@angular/common/http'
 //PAGINAS
 import { AppRoutingModule } from './app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -150,6 +151,7 @@ import { CUSTOM_ELEMENTS_SCHEMA }      from '@angular/core';
     ReactiveFormsModule,
     //Validators,
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     MatButtonModule,

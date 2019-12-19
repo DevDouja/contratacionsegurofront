@@ -17,7 +17,7 @@ asegurado:Persona;
 /*datos generales*/
 seguroActual:boolean;
 empresaSeguroActual:string;
-fechafinalizacionSeguroActual:boolean;
+fechafinalizacionSeguroActual:Date;
 codigoPresupuesto:string;
 primaAnual:number;
 primaSemestral:number;
