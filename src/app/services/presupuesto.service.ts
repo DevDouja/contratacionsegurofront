@@ -16,7 +16,9 @@ export class PresupuestoService implements OnInit{
   constructor(private http:HttpClient,
               private estado:EstadoService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.estado.chatAtras ="/presupuesto";
+  }
   
 
   calcularPresupuesto(vivienda:Vivienda):Observable<number>{

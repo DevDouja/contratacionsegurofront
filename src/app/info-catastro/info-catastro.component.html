@@ -4,7 +4,7 @@
 <p>Tipo de vivienda</p>
 <mat-form-field>
   <mat-label>tipo</mat-label>
-  <mat-select [(ngModel)]="valorTipoVivienda" name="tipoVivienda">
+  <mat-select [(ngModel)]="valorTipoVivienda" name="tipoVivienda" [(value)]="valorTipoVivienda" >
     <mat-option *ngFor="let tipoVivienda of tipoViviendas" [value]="tipoVivienda.value"  required>
       {{tipoVivienda.viewValue}}
     </mat-option>
@@ -33,7 +33,7 @@
 
 <p>Superficie contruida</p>
 <mat-form-field class="example-full-width">
-  <textarea matInput formControlName= "superficieConstruida"  [(ngModel)]="superficieConstruida" placeholder="{{superficiecontrucida}}"></textarea>
+  <textarea matInput formControlName= "superficieConstruida"  [(ngModel)]="superficieConstruida" value="{{superficieConstruida}}"></textarea>
 </mat-form-field> 
 </form>
 

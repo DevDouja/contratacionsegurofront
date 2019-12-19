@@ -13,6 +13,7 @@ export class PersonasViviendaComponent implements OnInit {
               private estado:EstadoService) { }
 
   ngOnInit() {
+    this.estado.chatAtras ="/personasvivienda";
     console.log("Datos Relacion Vivienda",this.estado.vivienda);
   }
   navigateToAtras() {

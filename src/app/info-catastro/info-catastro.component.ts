@@ -46,7 +46,14 @@ export class InfoCatastroComponent implements OnInit {
     private estado:EstadoService) { }
 
   ngOnInit() {
-   this.infoCatastro = this.formBuilder.group({
+    this.valorTipoVivienda = this.estado.vivienda.tipo;
+    this.valorTipoContruccion = this.estado.vivienda.tipoConstruccion;
+    this.anyoConstruccion = this.estado.vivienda.anyoConstruccion;
+    this.superficieConstruida = this.estado.vivienda.superficieConstruida;
+
+
+    this.estado.chatAtras ="/infocatastro";
+    this.infoCatastro = this.formBuilder.group({
     anyoConstruccion: ['',Validators.required],
     superficieConstruida:['',[Validators.required]&&[Validators.pattern('^[0-9]{2,}$')]],
 
@@ -78,7 +85,7 @@ export class InfoCatastroComponent implements OnInit {
        /******superficieConstruida*/
        this.estado.vivienda.superficieConstruida = Number(this.superficieConstruida);
        console.log("****anyoConstruccion en InfoCatastro *****",this.estado.vivienda);
-       console.log("anyoConstruccion:",this.estado.vivienda.anyoConstruccion);
+       console.log("anyoConstruccion:",this.estado.vivienda.superficieConstruida);
 
 
     this.estado.saveData();

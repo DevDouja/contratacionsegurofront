@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EstadoService } from '../services/estado.service';
 
 export interface Nacionalidad{
   value: string;
@@ -41,12 +42,14 @@ export class DatosPersonaComponent implements OnInit {
 
 
   ];
-  constructor(private router : Router) { }
+  constructor(private router : Router,
+              private estado:EstadoService) { }
 
   ngOnInit() {
+    this.estado.chatAtras ="/datospersona";
   }
   navigateToAtras() {
-    this.router.navigate(['/continentecontenido']);
+    this.router.navigate(['/coberturas']);
   }
   navigateToSiguiente() {
     this.router.navigate(['/presupuesto']);

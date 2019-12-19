@@ -19,6 +19,9 @@ export class ContienenteContenidoComponent implements OnInit {
     private estado:EstadoService) { }
 
   ngOnInit() {
+    this.contenido = this.estado.vivienda.contenido;
+    this.continente = this.estado.vivienda.contienente;
+    this.estado.chatAtras ="/continentecontenido";
     this.formContinenteContenido = this.formBuilder.group({
       continente:['',[Validators.required]&&[Validators.pattern('^[0-9]{5,}$')]],
       contenido:['',[Validators.required]&&[Validators.pattern('^[0-9]{5,}$')]],
@@ -26,10 +29,12 @@ export class ContienenteContenidoComponent implements OnInit {
       });
   }
   navigateToAtras() {
+    console.log("******contienentecontienente********",this.estado.vivienda.contienente);
     this.router.navigate(['/fechaefecto']);
+        this.router.navigate(['/fechaefecto']);
   }
   navigateToSiguiente() {
-
+  
      /******Continente*/
      this.estado.vivienda.contienente = this.continente;
      console.log("****Continente en ContienenteContenido *****",this.estado.vivienda);
@@ -41,7 +46,7 @@ export class ContienenteContenidoComponent implements OnInit {
      console.log("contenido:",this.estado.vivienda.contenido);
 
      this.estado.saveData();
-    this.router.navigate(['/presupuesto']);
+    this.router.navigate(['/coberturas']);
   }
 
 

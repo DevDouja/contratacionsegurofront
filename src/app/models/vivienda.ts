@@ -11,8 +11,8 @@ export class Vivienda{
     puertaBlindad:boolean;
     rejas:boolean;
     alarma:boolean;
-    contienente:number; //a generar
-    contenido:number;  //a generar
+    contienente:number=30000; //a generar
+    contenido:number=10000;  //a generar
     /************************************/
     poblacion:string;
     codigoPostal:string;

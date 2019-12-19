@@ -34,6 +34,7 @@ chatAtras:string;
 
 
 constructor() {
+
   console.log("soy el constructor del estado");
   if(localStorage.length == 0 || JSON.parse(localStorage.getItem("Vivienda")) === null){
 
@@ -60,6 +61,8 @@ constructor() {
      this.vivienda.contienente = 20000;
      this.vivienda.contenido = 10000;
      this.vivienda.codigoPostal = "08225";
+     this.vivienda.direccion = "Portalillo 37, 2º3ª";
+     this.vivienda.superficieConstruida =100;
    
      /******Coberturas******/
      this.coberturas.push("Robo");
@@ -88,11 +91,13 @@ constructor() {
 
 }
   
-ngOnInit(): void {}
+ngOnInit(): void {
+
+}
 
 getData(){
   console.log("Antes de recuperar los datos",this.vivienda);
-
+  console.log("estadoContenido",this.vivienda.contenido);
   console.log("recuperar los datos");
 
   this.vivienda = JSON.parse(localStorage.getItem("Vivienda"));

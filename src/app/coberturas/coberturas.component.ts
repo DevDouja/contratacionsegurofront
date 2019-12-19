@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EstadoService } from '../services/estado.service';
 
 @Component({
   selector: 'app-coberturas',
@@ -8,15 +9,17 @@ import { Router } from '@angular/router';
 })
 export class CoberturasComponent implements OnInit {
 
-  constructor(private router : Router) { }
+  constructor(private router : Router,
+              private estado: EstadoService) { }
 
   ngOnInit() {
+    this.estado.chatAtras ="/coberturas";
   }
   navigateToAtras() {
-    this.router.navigate(['/datospersona']);
+    this.router.navigate(['/continentecontenido']);
   }
   navigateToSiguiente() {
-    this.router.navigate(['/presupuesto']);
+    this.router.navigate(['/datospersona']);
   }
 
 }
