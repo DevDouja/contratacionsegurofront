@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class PresupuestoService implements OnInit{
 
-  URL = "http://localhost:8080/presupuesto"
+  URL = "http://10.250.5.14:8080/presupuesto"
   
 
   constructor(private http:HttpClient,
@@ -20,6 +20,7 @@ export class PresupuestoService implements OnInit{
   
 
   calcularPresupuesto(vivienda:Vivienda):Observable<number>{
+    console.log("*******Calcular Presupuesto********")
     console.log("vivienda en PresupuestoService",vivienda);
     return this.http.post<number>(this.URL,vivienda);
   }

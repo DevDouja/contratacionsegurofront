@@ -56,7 +56,10 @@ export class InfoCatastroComponent implements OnInit {
   navigateToAtras() {
     this.router.navigate(['/direccion']);
   }
+
+
   navigateToSiguiente() {
+    console.log("hola");
     /******TipoVivienda*/
     this.estado.vivienda.tipo = this.valorTipoVivienda;
     console.log("****Vivienda en InfoCatastro *****",this.estado.vivienda);

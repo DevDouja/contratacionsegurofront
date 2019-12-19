@@ -15,10 +15,11 @@ import { DatosPagoComponent } from './datos-pago/datos-pago.component';
 import { ContienenteContenidoComponent } from './contienente-contenido/contienente-contenido.component';
 import {AyudaComponent} from "./ayuda/ayuda.component";
 import { CoberturasComponent } from './coberturas/coberturas.component';
+import { ChatBoxComponent } from './chat-box/chat-box.component';
 
 
 const routes: Routes = [
-  { path:'',redirectTo:'home',pathMatch:'full'},
+  { path:'',redirectTo:'relacionvivienda',pathMatch:'full'},
   { path:'inicio',component:HomeComponent},
   { path:'relacionvivienda',component:RelacionViviendaComponent},
   { path:'personasvivienda',component:PersonasViviendaComponent},
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path:'datospago',component:DatosPagoComponent},
   { path:'continentecontenido', component:ContienenteContenidoComponent},
   { path:'ayuda', component:AyudaComponent},
+  { path:'chatbot', component:ChatBoxComponent},
 ];
 
 @NgModule({

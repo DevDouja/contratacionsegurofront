@@ -30,6 +30,7 @@ hipotica:boolean;
 paisCuenta:string;
 numeroCuenta:string; //IBAN
 presupuesto:number;
+chatAtras:string;
 
 
 constructor() {

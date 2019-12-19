@@ -75,7 +75,8 @@ import {MatTreeModule} from '@angular/material/tree';
 import { CoberturasComponent } from './coberturas/coberturas.component';
 import { EstadoService } from './services/estado.service';
 import { PresupuestoService } from './services/presupuesto.service';
-import { CUSTOM_ELEMENTS_SCHEMA }      from '@angular/core'; 
+import { CUSTOM_ELEMENTS_SCHEMA }      from '@angular/core';
+import { ChatBoxComponent } from './chat-box/chat-box.component'; 
 //FIN MAMIL AYUDA
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { CUSTOM_ELEMENTS_SCHEMA }      from '@angular/core';
     DatosPagoComponent,
     AyudaComponent,
     AyudaSheetComponent,
-    CoberturasComponent
+    CoberturasComponent,
+    ChatBoxComponent
   ],
   //mamil - ini
   exports: [

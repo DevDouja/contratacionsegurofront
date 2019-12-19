@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
+import { Router } from '@angular/router';
 
 /**
  * @title Ayuda
@@ -22,10 +23,13 @@ export class AyudaComponent {
   templateUrl: 'ayuda-sheet.component.html',
 })
 export class AyudaSheetComponent {
-  constructor(private _bottomSheetRef: MatBottomSheetRef<AyudaSheetComponent>) {}
+  constructor(private _bottomSheetRef: MatBottomSheetRef<AyudaSheetComponent>,
+              private router : Router) {}
 
   openLink(event: MouseEvent): void {
     this._bottomSheetRef.dismiss();
     event.preventDefault();
+    console.log("***********evento",event);
+    this.router.navigate(['/chatbot']);
   }
 }

@@ -20,6 +20,8 @@ export class RelacionViviendaComponent implements OnInit {
               private estado:EstadoService) { }
 
   ngOnInit() {
+
+    this.estado.chatAtras ="/relacionvivienda";
     
   }
   /*navigateToAtras() {
